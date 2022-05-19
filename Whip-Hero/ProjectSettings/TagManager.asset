@@ -41,3 +41,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Whip
+    uniqueID: 848632795
+    locked: 0

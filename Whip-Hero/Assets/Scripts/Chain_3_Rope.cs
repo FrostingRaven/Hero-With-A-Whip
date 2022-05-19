@@ -32,7 +32,10 @@ public class Chain_3_Rope : MonoBehaviour
             hj.connectedBody = prevBond;
 
             prevBond = newSeg.GetComponent<Rigidbody2D>();
-            if (i==numLinks-1){
+            if (i==0){
+                hj.useLimits=false;
+            }/*
+            if (i==numLinks-1||i==0){
                 newSeg.GetComponent<Chain_3_Look>().enabled=true;
             }
             /*
@@ -41,5 +44,6 @@ public class Chain_3_Rope : MonoBehaviour
             }
             */
         }
+        this.GetComponent<Chain_3_Test>().SetKids();
     }
 }

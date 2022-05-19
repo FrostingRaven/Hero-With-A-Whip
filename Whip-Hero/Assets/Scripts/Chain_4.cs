@@ -9,6 +9,7 @@ public class Chain_4 : MonoBehaviour
     public float ropeSegLen = 0.25f;
     public int segmentLength = 35;
     public float lineWidth = 0.1f;
+    public Vector2 forceGravity = new Vector2(0f,-1.5f);
     [SerializeField] private Transform Hand;
     private EdgeCollider2D edgeCollider2D;
 
@@ -38,7 +39,6 @@ public class Chain_4 : MonoBehaviour
     private void SimulateRope(){
 
         //Simulations
-        Vector2 forceGravity = new Vector2(0f,-1.5f);
 
         for (int i = 1; i<this.segmentLength;i++){
             RopeSegment firstSeg = this.ropeSegements[i];

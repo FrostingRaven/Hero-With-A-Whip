@@ -2,12 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chain_3_Look : MonoBehaviour
+public class Chain_3_Test : MonoBehaviour
 {
     Vector2 mousePosition;
     Vector2 direction;
     public float speed = 5f;
+    public List<GameObject> children;
+    public float scale = 1f;
     Quaternion rotate;
+
+    public void SetKids(){
+        foreach (Transform child in transform){
+            if (child.gameObject.GetComponentInChildren<Chain_3_Look>()!=null)
+                children.Add(child.gameObject);
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -19,4 +28,11 @@ public class Chain_3_Look : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, rotate,speed);
     }
 
+    private void FixedUpdate() {
+        float down = scale;
+        foreach(GameObject chain in children){
+            chain.GetComponent<Rigidbody2D>().velocity*=down;
+            down+=0.0005f;
+        }
+    }
 }
