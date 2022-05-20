@@ -32,7 +32,7 @@ public class Chain_3_Test : MonoBehaviour
         float down = scale;
         foreach(GameObject chain in children){
             chain.GetComponent<Rigidbody2D>().velocity*=down;
-            down+=0.0005f;
+            down+=0.001f;
         }
     }
 }
