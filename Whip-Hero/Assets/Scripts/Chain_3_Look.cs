@@ -11,6 +11,7 @@ public class Chain_3_Look : MonoBehaviour
     public float checkRadious = 2;
     Collider2D[] objects;
     public LayerMask attachable;
+    private bool attached = false;
 
     private void Start() {
 
@@ -22,11 +23,17 @@ public class Chain_3_Look : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        objects = Physics2D.OverlapCircleAll(this.transform.position,checkRadious,attachable);
-        if(Input.GetMouseButton(0)){
-            foreach(Collider2D obj in objects){
-                obj.GetComponent<AttachableObject>().Attach(rb);
+        if (!attached){
+            objects = Physics2D.OverlapCircleAll(this.transform.position,checkRadious,attachable);
+            if(Input.GetMouseButton(0)){
+                foreach(Collider2D obj in objects){
+                    obj.GetComponent<AttachableObject>().Attach(rb);
+                    attached = true;
+                }
             }
+        }
+        if(!Input.GetMouseButton(0)){
+            attached = false;
         }
     }
 

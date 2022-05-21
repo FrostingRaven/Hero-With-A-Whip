@@ -7,6 +7,7 @@ public class AttachableObject : MonoBehaviour
     public Rigidbody2D rb2D;
     public HingeJoint2D hj2D;
     public bool attached=false;
+    public GameObject hook; 
 
 
     private void Start() {
@@ -19,9 +20,9 @@ public class AttachableObject : MonoBehaviour
 
     public virtual void Disattach(){
         hj2D.connectedBody=null;
+        hj2D.enabled=false;
         attached=false;
         this.GetComponent<SpriteRenderer>().color = Color.white;
-        rb2D.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 
     public virtual void SetData(){

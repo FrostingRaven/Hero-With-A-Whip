@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Grabable
+  - Hook
   layers:
   - Default
   - TransparentFX
@@ -44,4 +45,7 @@ TagManager:
     locked: 0
   - name: Whip
     uniqueID: 848632795
+    locked: 0
+  - name: 'Draggables '
+    uniqueID: 1830702893
     locked: 0

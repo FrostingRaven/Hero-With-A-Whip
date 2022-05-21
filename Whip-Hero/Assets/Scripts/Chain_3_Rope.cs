@@ -40,12 +40,13 @@ public class Chain_3_Rope : MonoBehaviour
             }
             if(i==numLinks-1){
                 newSeg.GetComponent<Chain_3_Look>().enabled=true;
+                newSeg.GetComponent<Rigidbody2D>().mass=1f;
             }
-            /*
-            if (i==numLinks-1){
+            
+            if (i==3){
                 hook.GetComponent<DistanceJoint2D>().connectedBody = newSeg.GetComponent<Rigidbody2D>();
                 hook.GetComponent<DistanceJoint2D>().distance = (newSeg.GetComponent<SpriteRenderer>().bounds.size.y*numLinks)+1; 
-            }*/
+            }
         }
         this.GetComponent<Chain_3_Test>().SetKids();
     }
