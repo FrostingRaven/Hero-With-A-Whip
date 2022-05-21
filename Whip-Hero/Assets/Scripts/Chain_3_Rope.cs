@@ -37,7 +37,11 @@ public class Chain_3_Rope : MonoBehaviour
             }
             if (i<3){
                 newSeg.GetComponent<Chain_3_Last>().enabled=true;
-            }/*
+            }
+            if(i==numLinks-1){
+                newSeg.GetComponent<Chain_3_Look>().enabled=true;
+            }
+            /*
             if (i==numLinks-1){
                 hook.GetComponent<DistanceJoint2D>().connectedBody = newSeg.GetComponent<Rigidbody2D>();
                 hook.GetComponent<DistanceJoint2D>().distance = (newSeg.GetComponent<SpriteRenderer>().bounds.size.y*numLinks)+1; 

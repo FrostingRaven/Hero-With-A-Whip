@@ -189,6 +189,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   speed: 5
+  checkRadious: 0.2
+  attachable:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &6710868354566473695
 MonoBehaviour:
   m_ObjectHideFlags: 0
