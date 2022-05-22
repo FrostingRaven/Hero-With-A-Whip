@@ -9,6 +9,7 @@ public class Chain_3_Look : MonoBehaviour
     private HingeJoint2D hj;
     public float speed = 5f;
     public float checkRadious = 2;
+    public Transform point;
     Collider2D[] objects;
     public LayerMask attachable;
     private bool attached = false;
@@ -24,7 +25,7 @@ public class Chain_3_Look : MonoBehaviour
     void Update()
     {
         if (!attached){
-            objects = Physics2D.OverlapCircleAll(this.transform.position,checkRadious,attachable);
+            objects = Physics2D.OverlapCircleAll(point.position,checkRadious,attachable);
             if(Input.GetMouseButton(0)){
                 foreach(Collider2D obj in objects){
                     obj.GetComponent<AttachableObject>().Attach(rb);
@@ -39,7 +40,7 @@ public class Chain_3_Look : MonoBehaviour
 
     void OnDrawGizmosSelected(){
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position,checkRadious);
+        Gizmos.DrawWireSphere(point.position,checkRadious);
     }
 
 }

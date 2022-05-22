@@ -13,7 +13,7 @@ public class Chain_3_Segment : MonoBehaviour
         if(aboveSegment !=null){
             aboveSegment.connectedBelow = gameObject;
             float spriteBottom = connectedAbove.GetComponent<SpriteRenderer>().bounds.size.y;
-            GetComponent<HingeJoint2D>().connectedAnchor = new Vector2(0,spriteBottom*-20);
+            GetComponent<HingeJoint2D>().connectedAnchor = new Vector2(0,spriteBottom*-10);
         }
         else{
             GetComponent<HingeJoint2D>().connectedAnchor = new Vector2(0,0);

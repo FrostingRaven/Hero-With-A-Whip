@@ -24,8 +24,20 @@ public class Chain_3_Rope : MonoBehaviour
         hook.position = Hand.position;
         Rigidbody2D prevBond = hook;
         for (int i =0; i<numLinks;i++){
-            int index = Random.Range(0,prefabRopeSegs.Length);
-            GameObject newSeg = Instantiate(prefabRopeSegs[index]);
+            GameObject newSeg = null;
+            if(i==0){
+                newSeg = Instantiate(prefabRopeSegs[0]);
+            }
+            else if(i==numLinks-1){
+                newSeg = Instantiate(prefabRopeSegs[3]);
+            }
+            else if(i%2==1){
+                newSeg = Instantiate(prefabRopeSegs[1]);
+            }
+            else{
+                newSeg = Instantiate(prefabRopeSegs[0]);
+            }
+            
             newSeg.transform.parent = transform;
             newSeg.transform.position = transform.position;
             HingeJoint2D hj = newSeg.GetComponent<HingeJoint2D>();
