@@ -190,6 +190,7 @@ MonoBehaviour:
   parent: {fileID: 0}
   speed: 5
   checkRadious: 0.2
+  point: {fileID: 0}
   attachable:
     serializedVersion: 2
     m_Bits: 256

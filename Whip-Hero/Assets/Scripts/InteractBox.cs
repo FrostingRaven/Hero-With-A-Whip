@@ -12,6 +12,7 @@ public class InteractBox : AttachableObject
     void Start()
     {
         PrevState = ConnectedObject;
+        SetData();
     }
 
 
