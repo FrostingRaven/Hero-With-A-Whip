@@ -18,7 +18,13 @@ public class HookBox : AttachableObject
     // Update is called once per frame
     void Update()
     {
-
+        if(attached){
+            if (!Input.GetMouseButton(0)||Vector2.Distance(connectedBody.transform.position,this.transform.position)>1.5f){
+                ds2D.enabled=false;
+                ds2D.connectedBody=null;
+                Disattach();
+            }
+        }
     }
 
 
