@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 8399140522232929534}
   - component: {fileID: -8512534572323786266}
   - component: {fileID: 6710868354566473695}
+  - component: {fileID: -2845797543671793462}
   m_Layer: 6
   m_Name: chain_1 3
   m_TagString: Untagged
@@ -573,6 +574,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.05
+--- !u!232 &-2845797543671793462
+DistanceJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8399140522232929475}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_AutoConfigureDistance: 1
+  m_Distance: 1
+  m_MaxDistanceOnly: 1
 --- !u!1 &8545940292524345147
 GameObject:
   m_ObjectHideFlags: 0

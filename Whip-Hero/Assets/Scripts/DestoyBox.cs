@@ -20,6 +20,7 @@ public class DestoyBox : AttachableObject
     {
         if(currHP<=0f){
             Destroy(rb2D.gameObject);
+            Disattach();
         }
     }
 

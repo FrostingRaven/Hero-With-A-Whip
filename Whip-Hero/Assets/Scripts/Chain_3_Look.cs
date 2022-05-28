@@ -7,6 +7,7 @@ public class Chain_3_Look : MonoBehaviour
     public Transform parent;
     private Rigidbody2D rb;
     private HingeJoint2D hj;
+    private DistanceJoint2D dj;
     public float speed = 5f;
     public float checkRadious = 2;
     public Transform point;
@@ -19,6 +20,8 @@ public class Chain_3_Look : MonoBehaviour
         parent = this.transform.parent.transform;
         rb = this.GetComponent<Rigidbody2D>();
         hj = this.GetComponent<HingeJoint2D>();
+        dj = this.GetComponent<DistanceJoint2D>();
+        dj.connectedBody = this.GetComponent<Chain_3_Segment>().connectedAbove.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -38,9 +41,5 @@ public class Chain_3_Look : MonoBehaviour
         }
     }
 
-    void OnDrawGizmosSelected(){
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(point.position,checkRadious);
-    }
 
 }

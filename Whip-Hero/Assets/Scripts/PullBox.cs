@@ -13,8 +13,6 @@ public class PullBox : AttachableObject
         SetData();
     }
 
-
-
     // Update is called once per frame
     void Update()
     {

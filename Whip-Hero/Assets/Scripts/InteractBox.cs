@@ -15,6 +15,13 @@ public class InteractBox : AttachableObject
         SetData();
     }
 
+    void Update(){
+        if(attached){
+            if (!Input.GetMouseButton(0)||Vector2.Distance(ConnectedObject.transform.position,this.transform.position)>1.5f){
+                Disattach();
+            }
+        }
+    }
 
     public override void Attach(Rigidbody2D rb)
     {
