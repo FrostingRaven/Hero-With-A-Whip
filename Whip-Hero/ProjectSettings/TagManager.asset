@@ -18,8 +18,8 @@ TagManager:
   - Player
   - AttachAble
   - Terrain
-  - 
-  - 
+  - Ground
+  - Dec
   - 
   - 
   - 
@@ -47,17 +47,17 @@ TagManager:
   - name: Background
     uniqueID: 735075753
     locked: 0
-  - name: Foreground
-    uniqueID: 1311806009
+  - name: Terrain
+    uniqueID: 2112647389
     locked: 0
   - name: Decor
     uniqueID: 624609353
     locked: 0
+  - name: Foreground
+    uniqueID: 1311806009
+    locked: 0
   - name: 'Draggables '
     uniqueID: 1830702893
-    locked: 0
-  - name: Terrain
-    uniqueID: 2112647389
     locked: 0
   - name: Whip
     uniqueID: 848632795
