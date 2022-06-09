@@ -19,8 +19,10 @@ public class AttachableObject : MonoBehaviour
     }
 
     public virtual void Disattach(){
-        hj2D.connectedBody=null;
-        hj2D.enabled=false;
+        if(hj2D!=null){
+            hj2D.connectedBody=null;
+            hj2D.enabled=false;
+        }
         attached=false;
         this.GetComponent<SpriteRenderer>().color = Color.white;
     }

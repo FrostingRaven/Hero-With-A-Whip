@@ -6,12 +6,11 @@ public class InteractBox : AttachableObject
 {
     Rigidbody2D rb;
     public GameObject ConnectedObject;
-    private GameObject PrevState;
-    private bool engaged=false;
+    private bool fliping;
     // Start is called before the first frame update
     void Start()
     {
-        PrevState = ConnectedObject;
+        fliping=true;
         SetData();
     }
 
@@ -25,15 +24,9 @@ public class InteractBox : AttachableObject
 
     public override void Attach(Rigidbody2D rb)
     {
-        //To be removed
-        if(!engaged){
-            ConnectedObject.GetComponent<SpriteRenderer>().color=Color.black;
-            engaged=!engaged;
-        }
-        else{
-            ConnectedObject.GetComponent<SpriteRenderer>().color = Color.cyan;
-            engaged=!engaged;
-        }
+        ConnectedObject.GetComponent<InteractConnected>().Engage();
+        this.gameObject.GetComponent<SpriteRenderer>().flipX=fliping;
+        fliping=!fliping;
         //This is to be made better with more other interactions for now we are going to do something
         //simple and local
         //ConnectedObject.Engage();

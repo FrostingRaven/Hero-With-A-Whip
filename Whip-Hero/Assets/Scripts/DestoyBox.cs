@@ -6,11 +6,14 @@ public class DestoyBox : AttachableObject
 {
     Rigidbody2D connectedBody;
     private float currHP;
+    public Sprite desSprite;
+    private SpriteRenderer sp;
     public float HP;
     public float speed;
     // Start is called before the first frame update
     void Start()
     {
+        sp = this.GetComponent<SpriteRenderer>();
         currHP = HP;
         SetData();
     }
@@ -18,10 +21,7 @@ public class DestoyBox : AttachableObject
     // Update is called once per frame
     void Update()
     {
-        if(currHP<=0f){
-            Destroy(rb2D.gameObject);
-            Disattach();
-        }
+
     }
 
 
@@ -33,7 +33,14 @@ public class DestoyBox : AttachableObject
         
 
         if(currHP<=0f){
-            Destroy(this.gameObject);
+            if(desSprite==null){
+                Destroy(rb2D.gameObject);
+            }
+            else{
+                sp.sprite = desSprite;
+                rb2D.gameObject.layer = 12;
+            }
+            Disattach();
         }
 
 

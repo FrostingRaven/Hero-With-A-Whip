@@ -57,7 +57,7 @@ public class DragBox : AttachableObject
 
     public override void Attach(Rigidbody2D rb)
     {
-        Debug.Log("Attached");
+        //Debug.Log("Attached");
         this.GetComponent<SpriteRenderer>().color = Color.green;
         //rb2D.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
         //rb2D.velocity = new Vector2(rb.velocity.x,0f);
