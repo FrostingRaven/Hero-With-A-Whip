@@ -35,6 +35,7 @@ public class DestoyBox : AttachableObject
         if(currHP<=0f){
             if(desSprite==null){
                 Destroy(rb2D.gameObject);
+                rb2D.gameObject.SetActive(false);
             }
             else{
                 sp.sprite = desSprite;

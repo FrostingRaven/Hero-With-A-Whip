@@ -11,7 +11,7 @@ public class Chain_1 : MonoBehaviour
     public Transform parent;
 
     Vector2 mousePos;
-
+    
     // Update is called once per frame
     void Update()
     {
