@@ -8,6 +8,7 @@ public class MenuButtons : MonoBehaviour
 {
     public static bool GameIsPaused;
     public GameObject PauseMenu;
+    public GameObject MouseFollower;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,7 @@ public class MenuButtons : MonoBehaviour
     }
 
     public void Resume(){
+        MouseFollower.GetComponent<Chain_3_Arm>().enabled=true;
         PauseMenu.SetActive(false);
         Time.timeScale=1f;
         GameIsPaused=false;
@@ -38,6 +40,7 @@ public class MenuButtons : MonoBehaviour
         SceneManager.LoadScene(0);
     }
     public void Pause(){
+        MouseFollower.GetComponent<Chain_3_Arm>().enabled=false;
         PauseMenu.SetActive(true);
         Time.timeScale=0f;
         GameIsPaused=true;
@@ -46,5 +49,9 @@ public class MenuButtons : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Resume();
     
+    }
+
+    public bool PauseState(){
+        return GameIsPaused;
     }
 }
