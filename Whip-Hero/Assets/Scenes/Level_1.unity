@@ -17445,7 +17445,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 3.7967324
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -17469,7 +17469,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535048386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7068362, y: 0, z: -10}
+  m_LocalPosition: {x: -0.84, y: -1.03, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23199,10 +23199,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trevor Belmond
       objectReference: {fileID: 0}
+    - target: {fileID: 2021534858193262702, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 80.85554
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021534858193262702, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 67.89307
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341370676881105739, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341370676881105739, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.000000026309765
+      objectReference: {fileID: 0}
+    - target: {fileID: 4625265325458808325, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
+      propertyPath: m_Distance
+      value: 5.7432203
+      objectReference: {fileID: 0}
+    - target: {fileID: 4625265325458808326, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
+      propertyPath: m_Distance
+      value: 5.7432203
+      objectReference: {fileID: 0}
+    - target: {fileID: 4625265325458808327, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -5.490685
+      objectReference: {fileID: 0}
+    - target: {fileID: 4625265325458808327, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -1.6843271
+      objectReference: {fileID: 0}
     - target: {fileID: 4625265326025567456, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
       propertyPath: Pauser
       value: 
       objectReference: {fileID: 1283379394}
+    - target: {fileID: 7299357367555292784, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.05897443
+      objectReference: {fileID: 0}
+    - target: {fileID: 7299357367555292784, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.9982595
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
