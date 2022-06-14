@@ -26,7 +26,9 @@ public class DragBox : AttachableObject
     void Update()
     {
         if(attached){
-            if (!Input.GetMouseButton(0)||Vector2.Distance(connectedBodyPos.position,this.transform.position)>3){
+            if (!Input.GetMouseButton(0)){
+                rb2D.constraints &= RigidbodyConstraints2D.FreezePositionX;
+                rb2D.mass=50;
                 Disattach();
                 released=true;
             }
@@ -40,30 +42,32 @@ public class DragBox : AttachableObject
             Vector2 localV = mouseD;
             //Vector2 localV = connectedBodyPos.parent.transform.InverseTransformDirection(connectedBody.velocity);
             localV.y=rb2D.velocity.y;
-            rb2D.velocity = localV*Time.deltaTime;
+            rb2D.velocity = localV*2f*Time.deltaTime;
             //localV.y=rb2D.velocity.y;
             //rb2D.velocity = new Vector2(mouseD.x*2f,rb2D.velocity.y)*Time.deltaTime;
             mousePosB = Input.mousePosition;
-            
+            rb2D.mass=15;
             //transform.position = Vector2.Lerp(rb2D.position,new Vector2(connectedBodyPos.parent.position.x+connectedBody.position.x*2,rb2D.position.y),0.2f*Time.deltaTime);
             connectedBody.position=new Vector2(rb2D.position.x,rb2D.position.y);
             //Disattach();
         }
         if(released){
-            rb2D.velocity=rb2D.velocity*0.5f;
+            rb2D.velocity=rb2D.velocity*2f;
             released=false;
+            rb2D.constraints &= RigidbodyConstraints2D.FreezePositionX;
+            rb2D.mass=50;
         }
     }
 
     public override void Attach(Rigidbody2D rb)
     {
         //Debug.Log("Attached");
-        this.GetComponent<SpriteRenderer>().color = Color.green;
-        //rb2D.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
+        rb2D.mass=15;
         //rb2D.velocity = new Vector2(rb.velocity.x,0f);
         //Vector2 t_y = new Vector2(rb.transform.position.x,transform.position.y);
         //hj2D.enabled=true;
         //hj2D.connectedBody = rb;
+        rb2D.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
         connectedBody = rb;
         connectedBodyPos = rb.transform;
         //hj2D.anchor=connectedBodyPos.position;

@@ -36,7 +36,7 @@ public class HookBox : AttachableObject
         connectedBodyPos = rb.transform;
         attached = true;
         ds2D.connectedBody = GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>();
-        hook = connectedBody.GetComponent<Chain_3_Look>().parent.gameObject;
-        ds2D.connectedAnchor=-1*hook.transform.position;
+        hook = connectedBody.gameObject;
+        //ds2D.connectedAnchor=hook.transform.position;
     }
 }

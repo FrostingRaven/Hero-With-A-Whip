@@ -50,12 +50,6 @@ public class Chain_3_Rope : MonoBehaviour
             if (i<6){
                 newSeg.GetComponent<Chain_3_Last>().enabled=true;
             }
-            if(i>0&&i<3){
-                JointAngleLimits2D limits = hj.limits;
-                limits.max=5;
-                limits.min=-5;
-                hj.limits=limits;
-            }
             if(i==numLinks-1){
                 newSeg.GetComponent<Chain_3_Look>().enabled=true;
                 newSeg.GetComponent<Rigidbody2D>().mass=1f;

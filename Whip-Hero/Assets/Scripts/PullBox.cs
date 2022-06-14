@@ -32,12 +32,12 @@ public class PullBox : AttachableObject
         if(released){
             rb2D.velocity=rb2D.velocity*0.5f;
             released=false;
+            Disattach();
         }
     }
 
     public override void Attach(Rigidbody2D rb)
     {
-        this.GetComponent<SpriteRenderer>().color = Color.green;
         hj2D.enabled=true;
         hj2D.connectedBody = rb;
         connectedBody = rb;

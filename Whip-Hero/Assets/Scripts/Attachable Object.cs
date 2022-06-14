@@ -24,7 +24,7 @@ public class AttachableObject : MonoBehaviour
             hj2D.enabled=false;
         }
         attached=false;
-        this.GetComponent<SpriteRenderer>().color = Color.white;
+        
     }
 
     public virtual void SetData(){

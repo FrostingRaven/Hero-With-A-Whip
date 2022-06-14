@@ -10,7 +10,7 @@ public class Chain_3_Look : MonoBehaviour
     private HingeJoint2D hj;
     private DistanceJoint2D dj;
     public float speed = 5f;
-    public float checkRadious = 2;
+    public float checkRadious = 5f;
     public Transform point;
     Collider2D[] objects;
     public LayerMask attachable;
