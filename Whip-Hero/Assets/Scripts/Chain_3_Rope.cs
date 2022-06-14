@@ -42,22 +42,30 @@ public class Chain_3_Rope : MonoBehaviour
             newSeg.transform.position = transform.position;
             HingeJoint2D hj = newSeg.GetComponent<HingeJoint2D>();
             hj.connectedBody = prevBond;
-            newSeg.GetComponent<Rigidbody2D>().mass-=0.1f*i;
+            newSeg.GetComponent<Rigidbody2D>().mass-=0.05f*i;
             prevBond = newSeg.GetComponent<Rigidbody2D>();
             if (i==0){
                 hj.useLimits=false;
             }
-            if (i<3){
+            if (i<6){
                 newSeg.GetComponent<Chain_3_Last>().enabled=true;
+            }
+            if(i>0&&i<3){
+                JointAngleLimits2D limits = hj.limits;
+                limits.max=5;
+                limits.min=-5;
+                hj.limits=limits;
             }
             if(i==numLinks-1){
                 newSeg.GetComponent<Chain_3_Look>().enabled=true;
                 newSeg.GetComponent<Rigidbody2D>().mass=1f;
+                
             }
             
-            if (i==3){
+            if (i==8){
                 hook.GetComponent<DistanceJoint2D>().connectedBody = newSeg.GetComponent<Rigidbody2D>();
-                hook.GetComponent<DistanceJoint2D>().distance = (newSeg.GetComponent<SpriteRenderer>().bounds.size.y*numLinks)+1; 
+                hook.GetComponent<DistanceJoint2D>().distance = 2.48f; 
+                hook.GetComponent<DistanceJoint2D>().maxDistanceOnly = true; 
             }
         }
         this.GetComponent<Chain_3_Test>().SetKids();

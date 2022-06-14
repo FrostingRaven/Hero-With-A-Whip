@@ -13,13 +13,8 @@ public class InteractConnected : MonoBehaviour
     }
 
     public void Engage(){
-        if(Press){
-            animator.SetBool("Press",Press);
-            Press=!Press;
-        }
-        else{
-            animator.SetBool("Press",Press);
-            Press=!Press;
-        }
+        Press=!Press;
+        animator.SetBool("Press",Press);
+        
     }
 }

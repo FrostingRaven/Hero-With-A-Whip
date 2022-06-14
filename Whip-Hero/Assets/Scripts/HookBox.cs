@@ -19,7 +19,7 @@ public class HookBox : AttachableObject
     void Update()
     {
         if(attached){
-            if (!Input.GetMouseButton(0)||Vector2.Distance(connectedBody.transform.position,this.transform.position)>1.5f){
+            if (!Input.GetMouseButton(0)){
                 ds2D.enabled=false;
                 ds2D.connectedBody=null;
                 Disattach();

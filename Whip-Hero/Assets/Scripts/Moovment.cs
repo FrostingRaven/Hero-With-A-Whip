@@ -6,8 +6,9 @@ public class Moovment : MonoBehaviour
 {
     private float horizontal;
     private float speed = 8f;
-    private float jumpingForce = 16f;
+    public float jumpingForce = 10f;
     private bool isFaceingRight = true;
+    public GameObject whip;
 
     [SerializeField] private Rigidbody2D rb2d;
     [SerializeField] private Transform groundCheck;
@@ -21,6 +22,7 @@ public class Moovment : MonoBehaviour
     private void FixedUpdate()
     {
         rb2d.velocity = new Vector2(horizontal * speed, rb2d.velocity.y);
+        Flip();
     }
     private bool IsGrounded()
     {
@@ -32,11 +34,15 @@ public class Moovment : MonoBehaviour
     {
         if(isFaceingRight && horizontal <0f || !isFaceingRight && horizontal > 0f)
         {
+            
             isFaceingRight = !isFaceingRight;
             Vector3 localScale = transform.localScale;
             localScale.x *= -1f;
             transform.localScale = localScale;
-
+            localScale = whip.transform.localPosition;
+            localScale.y *= -1f;
+            whip.transform.localPosition = localScale;
+            whip.GetComponent<SpriteRenderer>().flipY=!isFaceingRight;
         }
     }
 

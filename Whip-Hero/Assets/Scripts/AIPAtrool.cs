@@ -19,7 +19,7 @@ public class AIPAtrool : MonoBehaviour
     public GameObject Bullet;
     private bool IsItShooting=false;
 
-    public float shootingRateInSeconds, BulletSpeed;
+    public float shootingRateInSeconds;
     
     // Start is called before the first frame update
     void Start()
@@ -55,12 +55,12 @@ public class AIPAtrool : MonoBehaviour
         distToPLayer = Vector2.Distance(transform.position, Player.position);
         if (distToPLayer <= range)
         {
-            if (Player.position.x > transform.position.x && transform.localScale.x < 0)
+            if (Player.position.x > transform.position.x && transform.rotation.y < 0)
             {
                 Flip();
             }
 
-            if (Player.position.x < transform.position.x && transform.localScale.x > 0)
+            if (Player.position.x < transform.position.x && transform.rotation.y > 0)
             {
                 Flip();
             }
@@ -78,16 +78,15 @@ public class AIPAtrool : MonoBehaviour
     void Flip()
     {
         mustPatrool = false;
-        transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+        transform.Rotate(0f,180f,0f);
         WalkSpoeed *= -1;
-        mustPatrool = true;
+        mustFlip=true;
     }
     IEnumerator Shoot()
     {
         IsItShooting = true;
         yield return new WaitForSeconds(shootingRateInSeconds);
-        GameObject newBullets = Instantiate(Bullet, ShootPosition.position  ,Quaternion.identity);
-        newBullets.GetComponent<Rigidbody2D>().velocity = new Vector2(BulletSpeed * WalkSpoeed * Time.fixedDeltaTime, 0f);
+        GameObject newBullets = Instantiate(Bullet, ShootPosition.position  ,ShootPosition.rotation);
         IsItShooting = false;
 
 

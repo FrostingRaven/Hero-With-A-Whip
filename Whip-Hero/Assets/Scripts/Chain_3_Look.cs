@@ -5,6 +5,7 @@ using UnityEngine;
 public class Chain_3_Look : MonoBehaviour
 {
     public Transform parent;
+    public float flatdamage = 5;
     private Rigidbody2D rb;
     private HingeJoint2D hj;
     private DistanceJoint2D dj;
@@ -21,20 +22,30 @@ public class Chain_3_Look : MonoBehaviour
         rb = this.GetComponent<Rigidbody2D>();
         hj = this.GetComponent<HingeJoint2D>();
         dj = this.GetComponent<DistanceJoint2D>();
-        dj.connectedBody = this.GetComponent<Chain_3_Segment>().connectedAbove.GetComponent<Rigidbody2D>();
+        //dj.connectedBody = this.GetComponent<Chain_3_Segment>().connectedAbove.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+        if(this.GetComponent<Chain_3_Segment>().connectedAbove!=null){
+            dj.connectedBody = this.GetComponent<Chain_3_Segment>().connectedAbove.GetComponent<Rigidbody2D>();
+        }
         if (!attached){
             objects = Physics2D.OverlapCircleAll(point.position,checkRadious,attachable);
             if(Input.GetMouseButton(0)){
                 foreach(Collider2D obj in objects){
-                    obj.GetComponent<AttachableObject>().Attach(rb);
-                    attached = true;
+                    if(obj.tag=="Enemy"){
+                        obj.GetComponent<Enemy_HP>().Attack(rb,flatdamage);
+                    }
+                    else{
+                        obj.GetComponent<AttachableObject>().Attach(rb);
+                    }
+                    attached=true;
                 }
             }
+            
         }
         if(!Input.GetMouseButton(0)){
             attached = false;

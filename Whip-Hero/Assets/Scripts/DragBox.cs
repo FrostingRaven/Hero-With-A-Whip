@@ -40,13 +40,13 @@ public class DragBox : AttachableObject
             Vector2 localV = mouseD;
             //Vector2 localV = connectedBodyPos.parent.transform.InverseTransformDirection(connectedBody.velocity);
             localV.y=rb2D.velocity.y;
-            rb2D.velocity = localV*2f*Time.deltaTime;
+            rb2D.velocity = localV*Time.deltaTime;
             //localV.y=rb2D.velocity.y;
             //rb2D.velocity = new Vector2(mouseD.x*2f,rb2D.velocity.y)*Time.deltaTime;
             mousePosB = Input.mousePosition;
             
             //transform.position = Vector2.Lerp(rb2D.position,new Vector2(connectedBodyPos.parent.position.x+connectedBody.position.x*2,rb2D.position.y),0.2f*Time.deltaTime);
-            connectedBody.position=new Vector2(rb2D.position.x,rb2D.position.y-0.6f);
+            connectedBody.position=new Vector2(rb2D.position.x,rb2D.position.y);
             //Disattach();
         }
         if(released){

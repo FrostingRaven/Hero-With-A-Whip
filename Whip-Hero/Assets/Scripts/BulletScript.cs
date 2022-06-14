@@ -5,7 +5,9 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
     public float direTime, damage;
-    
+    public  int BulletSpeed;
+    public Rigidbody2D rb;
+    public LayerMask player;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,10 +17,16 @@ public class BulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        rb.velocity = transform.right*BulletSpeed;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    void OnTriggerEnter2D(Collider2D coll)
     {
+        
+        Player_HP playerhp = coll.gameObject.GetComponent<Player_HP>();
+        if(playerhp!=null){
+            playerhp.TakeDamage(damage);
+        }
         Destroy(gameObject);
     }
 
