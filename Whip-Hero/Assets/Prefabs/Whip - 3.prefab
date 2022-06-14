@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7422406870563019506}
   m_Layer: 6
   m_Name: Hook
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5875029116534766037}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.327, z: 0}
+  m_LocalPosition: {x: 0, y: 0.78, z: 0}
   m_LocalScale: {x: 0.03888248, y: 0.03888248, z: 0.4459}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -124,7 +124,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -1.0549998, y: -0.768}
+  m_ConnectedAnchor: {x: 0.00000018596646, y: 0.78}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -149,9 +149,9 @@ DistanceJoint2D:
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
-  m_AutoConfigureDistance: 1
-  m_Distance: 1.3049325
-  m_MaxDistanceOnly: 1
+  m_AutoConfigureDistance: 0
+  m_Distance: 0.78
+  m_MaxDistanceOnly: 0
 --- !u!232 &7422406870563019506
 DistanceJoint2D:
   m_ObjectHideFlags: 0
@@ -159,7 +159,7 @@ DistanceJoint2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5875029116534766037}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 0}
@@ -169,7 +169,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 1.3049325
+  m_Distance: 0.78
   m_MaxDistanceOnly: 0
 --- !u!1 &6122998629604773898
 GameObject:
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 5072227946011054736}
   m_Layer: 6
   m_Name: Whip - 3
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -224,7 +224,7 @@ MonoBehaviour:
   - {fileID: 8399140522232929475, guid: cf34843d78b558148bf1e72f77ce25aa, type: 3}
   - {fileID: 8399140522232929475, guid: 744484c92cd588241ad38db90b41f377, type: 3}
   - {fileID: 8399140522232929475, guid: db428ac6d88648d488064b4bcd3b7228, type: 3}
-  numLinks: 15
+  numLinks: 20
 --- !u!114 &5072227946011054736
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535048386}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.18, y: 3.3500001, z: -10}
+  m_LocalPosition: {x: 4.18, y: 3.52, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -61,7 +61,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 3.7967324
+  orthographic size: 4.878229
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 5649901450630578013}
   m_Layer: 7
   m_Name: HoldTrevor
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,7 +186,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 5649901449952949235}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: ad748a6d2558c694384642425aa4a95d, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -206,6 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpingForce: 10
+  whip: {fileID: 0}
   rb2d: {fileID: 5649901449952949233}
   groundCheck: {fileID: 5649901451297381726}
   groundLayer:
@@ -220,7 +221,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 5649901449952949235}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: ad748a6d2558c694384642425aa4a95d, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -253,6 +254,10 @@ MonoBehaviour:
   hpbar: {fileID: 0}
   DeadScreen: {fileID: 0}
   currHP: 0
+  chase:
+    serializedVersion: 2
+    m_Bits: 16384
+  pointofDamage: {fileID: 0}
 --- !u!1 &5649901451297381727
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,6 +351,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 5649901449952949234}
     m_Modifications:
     - target: {fileID: 9226000654065274, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
+      propertyPath: m_Bounds.m_Center.x
+      value: 87.34445
+      objectReference: {fileID: 0}
+    - target: {fileID: 9226000654065274, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
       propertyPath: m_Bounds.m_Center.y
       value: 50.894646
       objectReference: {fileID: 0}
@@ -396,6 +405,10 @@ PrefabInstance:
     - target: {fileID: 2011456338190257656, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
       propertyPath: m_Name
       value: Trevor Belmond
+      objectReference: {fileID: 0}
+    - target: {fileID: 2011456338190257656, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2021534858193262702, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -455,11 +468,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4860059064390536928, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: 87.36219
+      value: 87.3622
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860059064390536928, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
+      propertyPath: m_Bounds.m_Center.y
+      value: 50.90238
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860059064390536928, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
+      propertyPath: m_Bounds.m_Extent.x
+      value: 5.8488274
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860059064390536928, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
+      propertyPath: m_Bounds.m_Extent.y
+      value: 9.766497
       objectReference: {fileID: 0}
     - target: {fileID: 5946790955281812575, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: 87.6923
+      value: 87.69231
       objectReference: {fileID: 0}
     - target: {fileID: 5946790955281812575, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
       propertyPath: m_Bounds.m_Center.y
@@ -471,15 +496,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5946790955281812575, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
       propertyPath: m_Bounds.m_Extent.y
-      value: 12.177288
+      value: 12.17729
       objectReference: {fileID: 0}
     - target: {fileID: 6661089300352479008, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
       propertyPath: m_Bounds.m_Center.x
       value: 88.16145
       objectReference: {fileID: 0}
     - target: {fileID: 6661089300352479008, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
+      propertyPath: m_Bounds.m_Center.y
+      value: 51.06691
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661089300352479008, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
       propertyPath: m_Bounds.m_Extent.x
-      value: 2.643715
+      value: 2.6437187
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661089300352479008, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
+      propertyPath: m_Bounds.m_Extent.y
+      value: 9.21464
       objectReference: {fileID: 0}
     - target: {fileID: 6708040378580910460, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
       propertyPath: m_Bounds.m_Center.x
@@ -501,6 +534,10 @@ PrefabInstance:
       propertyPath: m_Bounds.m_Center.x
       value: 87.36328
       objectReference: {fileID: 0}
+    - target: {fileID: 6813812253584718503, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7299357367555292784, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.05897443
@@ -515,7 +552,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7685461464247188339, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
       propertyPath: m_Bounds.m_Extent.y
-      value: 2.9609451
+      value: 2.9609432
       objectReference: {fileID: 0}
     - target: {fileID: 7770841517477244139, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
       propertyPath: m_Bounds.m_Center.x
@@ -527,7 +564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7990514766514981579, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: 87.25064
+      value: 87.25063
       objectReference: {fileID: 0}
     - target: {fileID: 7990514766514981579, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
       propertyPath: m_Bounds.m_Center.y
@@ -535,7 +572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8238786812243342899, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: 87.34607
+      value: 87.34608
       objectReference: {fileID: 0}
     - target: {fileID: 8238786812243342899, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
       propertyPath: m_Bounds.m_Center.y
@@ -543,7 +580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8238786812243342899, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
       propertyPath: m_Bounds.m_Extent.x
-      value: 1.7232094
+      value: 1.7232132
       objectReference: {fileID: 0}
     - target: {fileID: 9075583400082514757, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
       propertyPath: m_Bounds.m_Center.x
@@ -554,16 +591,20 @@ PrefabInstance:
       value: 50.92286
       objectReference: {fileID: 0}
     - target: {fileID: 9154196497943960860, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
+      propertyPath: m_Bounds.m_Center.x
+      value: 87.5425
+      objectReference: {fileID: 0}
+    - target: {fileID: 9154196497943960860, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: 50.98969
+      value: 50.989685
       objectReference: {fileID: 0}
     - target: {fileID: 9154196497943960860, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
       propertyPath: m_Bounds.m_Extent.x
-      value: 4.704426
+      value: 4.7044296
       objectReference: {fileID: 0}
     - target: {fileID: 9154196497943960860, guid: 142814dd7f329a242975a7d24fc1c41d, type: 3}
       propertyPath: m_Bounds.m_Extent.y
-      value: 11.730694
+      value: 11.730692
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects:
@@ -583,7 +624,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1484789433261675515}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -698,7 +739,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2042932533798683184}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -745,7 +786,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141749272883450562}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -837,7 +878,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2452065180755277720}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -926,7 +967,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3887835284120228596}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1005,7 +1046,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4986904102836425677}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1100,7 +1141,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5673509842732386751}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1225,7 +1266,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6020128614036309518}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1341,7 +1382,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6352759285338956374}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1427,7 +1468,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6821941739333937629}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1523,7 +1564,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7202104504134905327}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1583,7 +1624,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7844438556264032636}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
