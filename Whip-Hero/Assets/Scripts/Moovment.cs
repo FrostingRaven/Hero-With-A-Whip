@@ -10,6 +10,7 @@ public class Moovment : MonoBehaviour
     private bool isFaceingRight = true;
     public GameObject whip;
 
+    [SerializeField] private Animator animator;
     [SerializeField] private Rigidbody2D rb2d;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
@@ -22,6 +23,12 @@ public class Moovment : MonoBehaviour
     private void FixedUpdate()
     {
         rb2d.velocity = new Vector2(horizontal * speed, rb2d.velocity.y);
+        if(rb2d.velocity.magnitude!=0){
+            animator.SetBool("isRunning",true);
+        }   
+        else{
+            animator.SetBool("isRunning",false);
+        }
         Flip();
     }
     private bool IsGrounded()
@@ -49,9 +56,15 @@ public class Moovment : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(IsGrounded()){
+            animator.ResetTrigger("Jump");
+            animator.SetBool("isJumping",false);
+        }
         horizontal = Input.GetAxisRaw("Horizontal");
         if (Input.GetButton("Jump") && IsGrounded())
         {
+            animator.SetTrigger("Jump");
+            animator.SetBool("isJumping",true);
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpingForce);
         }
     //    if (Input.GetButton("Jump") && rb2d.velocity.x > 0f)

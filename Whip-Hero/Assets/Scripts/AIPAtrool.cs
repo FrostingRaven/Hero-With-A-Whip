@@ -20,6 +20,7 @@ public class AIPAtrool : MonoBehaviour
     private bool IsItShooting=false;
 
     public float shootingRateInSeconds;
+    [SerializeField] private Animator animator;
     
     // Start is called before the first frame update
     void Start()
@@ -35,8 +36,8 @@ public class AIPAtrool : MonoBehaviour
         }
 
         rb2d.velocity = new Vector2(WalkSpoeed * Time.fixedDeltaTime, rb2d.velocity.y);
-
-    }
+        animator.SetBool("isMoving",true);
+    }   
     private void FixedUpdate()
     {
         if (mustPatrool)
@@ -68,6 +69,8 @@ public class AIPAtrool : MonoBehaviour
             rb2d.velocity = Vector2.zero;
             if (!IsItShooting)
             {
+                animator.SetBool("isMoving",false);
+                animator.SetTrigger("Attack");
                 StartCoroutine(Shoot());
             }
         }else mustPatrool = true;
@@ -81,14 +84,15 @@ public class AIPAtrool : MonoBehaviour
         transform.Rotate(0f,180f,0f);
         WalkSpoeed *= -1;
         mustFlip=true;
+        animator.SetBool("isMoving",false);
     }
     IEnumerator Shoot()
     {
+        animator.SetTrigger("Attack");
         IsItShooting = true;
         yield return new WaitForSeconds(shootingRateInSeconds);
         GameObject newBullets = Instantiate(Bullet, ShootPosition.position  ,ShootPosition.rotation);
         IsItShooting = false;
-
 
     }
 }

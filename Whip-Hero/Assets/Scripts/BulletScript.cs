@@ -24,6 +24,7 @@ public class BulletScript : MonoBehaviour
     {
         
         Player_HP playerhp = coll.gameObject.GetComponent<Player_HP>();
+        Debug.Log(coll.name);
         if(playerhp!=null){
             playerhp.TakeDamage(damage);
         }

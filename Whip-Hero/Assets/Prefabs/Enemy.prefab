@@ -560,6 +560,7 @@ MonoBehaviour:
   range: 10
   Bullet: {fileID: 7787293227672428339, guid: 4c0fd1a264e997f4ba53a93fa582733b, type: 3}
   shootingRateInSeconds: 2
+  animator: {fileID: 0}
 --- !u!114 &5711922805256368556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -573,6 +574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 50
+  animator: {fileID: 0}
   currHP: 0
   HealthBar: {fileID: 2022642034}
 --- !u!50 &6134371996609529596

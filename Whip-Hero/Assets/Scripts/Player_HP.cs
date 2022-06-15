@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Player_HP : MonoBehaviour
 {
     [SerializeField] private float MaxHP;
+    [SerializeField] private Animator animator;
     public Slider hpbar;
     public GameObject DeadScreen;
     public float currHP;
@@ -23,6 +24,7 @@ public class Player_HP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        animator.ResetTrigger("Damaged");
         if(currHP<=0){
             Death();
         }
@@ -38,7 +40,7 @@ public class Player_HP : MonoBehaviour
     }
 
     public void Death(){
-        //play death animation
+        animator.SetTrigger("Death");
         Time.timeScale=0f;
         DeadScreen.SetActive(true);
 
@@ -46,6 +48,7 @@ public class Player_HP : MonoBehaviour
 
     public void TakeDamage(float damage){
         currHP-=damage;
+        animator.SetTrigger("Damaged");
         hpbar.value=currHP;
     }
 }

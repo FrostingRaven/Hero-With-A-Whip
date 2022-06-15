@@ -7,6 +7,7 @@ public class Enemy_HP : MonoBehaviour
 {
 
     [SerializeField] private float maxHP;
+    [SerializeField] private Animator animator;
     public float currHP=1f;
     public EnemyHPBar HealthBar;
     // Start is called before the first frame update
@@ -19,18 +20,19 @@ public class Enemy_HP : MonoBehaviour
     // Update is called once per frame
 
     public void Death(){
-        this.GetComponent<Rigidbody2D>().freezeRotation=false;
-        this.gameObject.layer = 11;
-        this.GetComponent<Collider2D>().isTrigger=true;
+        this.gameObject.layer = 17;
         this.GetComponent<AIPAtrool>().enabled=false;
-        this.enabled=false;
+        //this.enabled=false;
+        animator.SetTrigger("Death");
     }
 
     public void Attack(Rigidbody2D rb, float flatDamage){
         currHP-=rb.velocity.magnitude+flatDamage;
+        animator.SetTrigger("Hit");
         HealthBar.SetHP(currHP,maxHP);
         if(currHP<=0){
             Death();
         }
+        animator.ResetTrigger("Hit");
     }
 }
