@@ -206,6 +206,7 @@ GameObject:
   - component: {fileID: 2097859930051314749}
   - component: {fileID: 2097859930051314750}
   - component: {fileID: 5205231712499613164}
+  - component: {fileID: 5871573772065729992}
   m_Layer: 13
   m_Name: SpearMan
   m_TagString: Enemy
@@ -229,7 +230,7 @@ Transform:
   - {fileID: 2097859929402077879}
   - {fileID: 1682015595629202006}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2097859930051314746
 SpriteRenderer:
@@ -306,7 +307,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   ShootPosition: {fileID: 2097859929913041423}
   range: 10
-  Bullet: {fileID: 7787293227672428339, guid: 4c0fd1a264e997f4ba53a93fa582733b, type: 3}
+  Bullet: {fileID: 7787293227672428339, guid: 04ecc7758253c11478fe9147dacdc443, type: 3}
   shootingRateInSeconds: 2
 --- !u!114 &538287008133280621
 MonoBehaviour:
@@ -386,6 +387,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.0827377, y: 0.38181823}
   m_EdgeRadius: 0
+--- !u!95 &5871573772065729992
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097859930051314745}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7a654cc9715e42543bcc5bd64f6c2e99, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3528342530954610731
 GameObject:
   m_ObjectHideFlags: 0
