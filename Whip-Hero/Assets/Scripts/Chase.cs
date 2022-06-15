@@ -13,6 +13,7 @@ public class Chase : MonoBehaviour
     public GameObject player;
     public LayerMask p;
     private bool engageChase=false;
+    public bool end=false;
 
     // Update is called once per frame
     void Update()
@@ -23,13 +24,18 @@ public class Chase : MonoBehaviour
         if(engageChase){
             StartChase();
         }
-        if((!obsticle.activeSelf||obsticle==null)&&path[path.Length-1]!=path[path.Length-2]){
+        if((obsticle==null||!obsticle.activeSelf)&&path[path.Length-1]!=path[path.Length-2]){
             EndChase();
         }
     }
 
     private void EndChase(){
         path[path.Length-1]=path[path.Length-2];
+        end=true;
+    }
+
+    public bool GiveEnd(){
+        return end;
     }
 
     void StartChase(){

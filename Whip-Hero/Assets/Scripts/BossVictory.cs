@@ -11,15 +11,20 @@ public class BossVictory : MonoBehaviour
     // Update is called once per frame
 
     void EngageWin(){
-        if(Boss!=null){
+        if(Boss==null||Boss.GetComponent<Chase>().GiveEnd()){
             StartCoroutine(Winning());
         }
     }
 
+    void OnTriggerEnter2D(Collider2D other) {
+        Debug.Log("HI");
+        EngageWin();
+    }
+
     IEnumerator Winning(){
+        Debug.Log("HI");
         var em = PS.emission;
         em.enabled=true;
-        player.GetComponent<Animator>().SetBool("Win",true);
         yield return new WaitForSeconds(5f);
         levelEnd.JumpLevel(6);
     }
