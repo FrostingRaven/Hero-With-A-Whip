@@ -2161,7 +2161,7 @@ PrefabInstance:
     - target: {fileID: 3141667364555267504, guid: 66fcc2fe1cff61b47b355bffeb636efe, type: 3}
       propertyPath: animator
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 642184194}
     - target: {fileID: 3141667364555267506, guid: 66fcc2fe1cff61b47b355bffeb636efe, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -2224,6 +2224,14 @@ PrefabInstance:
     - target: {fileID: 1684121752267980209, guid: 26a76986beb6b624cb52aed1d483fc52, type: 3}
       propertyPath: m_Name
       value: Chest
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684121752267980210, guid: 26a76986beb6b624cb52aed1d483fc52, type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684121752267980210, guid: 26a76986beb6b624cb52aed1d483fc52, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1830702893
       objectReference: {fileID: 0}
     - target: {fileID: 1684121752267980211, guid: 26a76986beb6b624cb52aed1d483fc52, type: 3}
       propertyPath: m_RootOrder
@@ -3294,6 +3302,73 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &417469607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 417469610}
+  - component: {fileID: 417469609}
+  - component: {fileID: 417469608}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &417469608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417469607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &417469609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417469607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &417469610
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417469607}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 34
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &417629137
 GameObject:
   m_ObjectHideFlags: 0
@@ -5576,6 +5651,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4633724415931464116, guid: 16062add78e8bfd4298700d86fcfe90b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4633724416887683307, guid: 16062add78e8bfd4298700d86fcfe90b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -5606,6 +5685,11 @@ MonoBehaviour:
 --- !u!1 &642184193 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4633724415931464116, guid: 16062add78e8bfd4298700d86fcfe90b, type: 3}
+  m_PrefabInstance: {fileID: 642184190}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &642184194 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4633724416501624099, guid: 16062add78e8bfd4298700d86fcfe90b, type: 3}
   m_PrefabInstance: {fileID: 642184190}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &673111094
